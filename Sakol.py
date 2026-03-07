@@ -20,7 +20,7 @@ groq_client = Groq(api_key=GROQ_API_KEY)
 # Discord bot
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix="!sk", intents=intents)
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Memory percakapan per user
 user_memory = defaultdict(list)
@@ -35,7 +35,7 @@ async def on_ready():
 # ==========================
 # Command AI
 # ==========================
-@bot.command()
+@bot.command(name="sk")
 @commands.cooldown(1, 5, commands.BucketType.user)  # anti spam (1 pesan / 5 detik)
 async def hallo(ctx, *, prompt):
 
